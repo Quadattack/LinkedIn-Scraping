@@ -1,0 +1,92 @@
+missing module named readline - imported by cmd, pdb
+missing module named pwd - imported by posixpath, shutil, tarfile, getpass, distutils.util, distutils.archive_util
+missing module named org - imported by copy
+missing module named fcntl - imported by tempfile, subprocess
+missing module named _sysconfigdata - imported by distutils.sysconfig, sysconfig
+missing module named grp - imported by shutil, tarfile, distutils.archive_util
+missing module named pyimod03_importers - imported by c:\python27\lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_pkgres.py
+missing module named 'pkg_resources.extern.pyparsing' - imported by pkg_resources._vendor.packaging.requirements, pkg_resources._vendor.packaging.markers
+missing module named 'org.python' - imported by pickle, xml.sax, setuptools.sandbox
+missing module named ordereddict - imported by pkg_resources._vendor.pyparsing
+missing module named 'collections.abc' - imported by urllib3._collections, pkg_resources._vendor.pyparsing
+missing module named _thread.RLock - imported by _thread, pkg_resources._vendor.pyparsing
+missing module named _thread.allocate_lock - imported by _thread, cffi.lock
+missing module named _thread.get_ident - imported by _thread, future.backports.misc
+missing module named 'com.sun' - imported by pkg_resources._vendor.appdirs
+missing module named com - imported by pkg_resources._vendor.appdirs
+missing module named winreg.QueryValue - imported by winreg, selenium.webdriver.firefox.firefox_binary
+missing module named winreg.HKEY_CURRENT_USER - imported by winreg, selenium.webdriver.firefox.firefox_binary
+missing module named winreg.OpenKey - imported by winreg, selenium.webdriver.firefox.firefox_binary
+missing module named winreg.OpenKeyEx - imported by winreg, platform
+missing module named winreg.HKEY_LOCAL_MACHINE - imported by winreg, platform, selenium.webdriver.firefox.firefox_binary
+missing module named winreg.QueryValueEx - imported by winreg, platform
+missing module named winreg.CloseKey - imported by winreg, platform
+missing module named pkg_resources.extern.packaging - imported by pkg_resources.extern, pkg_resources
+missing module named pkg_resources.extern.appdirs - imported by pkg_resources.extern, pkg_resources
+missing module named 'importlib.machinery' - imported by cffi.verifier, pkg_resources
+missing module named 'pkg_resources.extern.six.moves' - imported by pkg_resources, pkg_resources._vendor.packaging.requirements
+missing module named pkg_resources.extern.six - imported by pkg_resources.extern, pkg_resources, pkg_resources.py31compat
+missing module named _imp - imported by pkg_resources
+missing module named 'java.lang' - imported by platform, xml.sax._exceptions
+missing module named _xmlplus - imported by xml
+missing module named 'Carbon.File' - imported by plistlib
+missing module named 'Carbon.Files' - imported by plistlib
+missing module named Carbon - imported by plistlib
+missing module named vms_lib - imported by platform
+missing module named java - imported by platform
+missing module named MacOS - imported by platform
+missing module named macresource - imported by MacOS
+missing module named gestalt - imported by platform
+missing module named riscosenviron - imported by os
+missing module named riscospath - imported by os
+missing module named riscos - imported by os
+missing module named ce - imported by os
+missing module named _emx_link - imported by os
+missing module named os2 - imported by os
+missing module named posix - imported by os
+missing module named resource - imported by posix
+missing module named testing - imported by cffi.recompiler
+missing module named setuptools.extern.six - imported by setuptools.extern, setuptools.monkey, setuptools.dist, setuptools.py33compat, setuptools.config, setuptools.command.easy_install, setuptools.sandbox, setuptools.py27compat, setuptools.package_index, setuptools.wheel, setuptools.pep425tags, setuptools.command.egg_info, setuptools.command.sdist, setuptools.command.bdist_egg, setuptools.unicode_utils
+missing module named setuptools.extern.packaging - imported by setuptools.extern, setuptools.dist, setuptools.command.egg_info
+missing module named importlib.reload - imported by importlib, xlwings.udfs
+missing module named 'setuptools.extern.six.moves' - imported by setuptools.dist, setuptools.py33compat, setuptools.command.easy_install, setuptools.sandbox, setuptools.command.setopt, setuptools.package_index, setuptools.ssl_support, setuptools.command.egg_info, setuptools.command.py36compat
+missing module named 'dbm.ndbm' - imported by future.moves.dbm.ndbm
+missing module named gdbm - imported by anydbm, future.moves.dbm.gnu
+missing module named 'dbm.gnu' - imported by future.moves.dbm.gnu
+missing module named 'dbm.dumb' - imported by future.moves.dbm.dumb
+missing module named bsddb3 - imported by bsddb
+missing module named _pybsddb - imported by bsddb, bsddb.db
+missing module named dbm - imported by future.standard_library, future.moves.dbm, whichdb, anydbm, future.moves.dbm.ndbm
+missing module named SOCKS - imported by ftplib
+missing module named _dummy_threading - imported by dummy_threading
+missing module named 'test.support' - imported by future.moves.test.support
+missing module named reprlib.recursive_repr - imported by reprlib, future.backports.misc
+missing module named _datetime - imported by future.backports.datetime
+missing module named _scproxy - imported by urllib, future.backports.urllib.request
+missing module named EasyDialogs - imported by getpass
+missing module named termios - imported by getpass
+missing module named 'setuptools.extern.packaging.utils' - imported by setuptools.wheel
+missing module named configparser - imported by setuptools.py36compat
+missing module named 'setuptools.extern.packaging.version' - imported by setuptools.config
+missing module named _manylinux - imported by setuptools.pep425tags
+missing module named wincertstore - imported by setuptools.ssl_support
+missing module named 'backports.ssl_match_hostname' - imported by setuptools.ssl_support
+missing module named 'setuptools.extern.six' - imported by setuptools, setuptools.extension
+missing module named cffi._pycparser - imported by cffi, cffi.cparser
+missing module named matplotlib - imported by xlwings.utils, xlwings.main
+missing module named numpy - imported by comtypes.npsupport, comtypes.safearray, xlwings.utils, xlwings._xlwindows, xlwings._xlmac, xlwings.conversion, xlwings.conversion.standard, xlwings.conversion.numpy_conv, xlwings.conversion.pandas_conv
+missing module named 'matplotlib.backends' - imported by xlwings.main
+missing module named pandas - imported by xlwings._xlwindows, xlwings._xlmac, xlwings.conversion, xlwings.conversion.numpy_conv, xlwings.conversion.pandas_conv
+missing module named 'appscript.reference' - imported by xlwings._xlmac
+missing module named appscript - imported by xlwings._xlmac
+missing module named aem - imported by xlwings._xlmac
+missing module named psutil - imported by xlwings._xlmac
+missing module named comtypes.gen - imported by comtypes, comtypes.client._code_cache, comtypes.client
+missing module named 'comtypes.gen' - imported by comtypes.client._generate
+missing module named 'PySide.QtCore' - imported by PIL.ImageQt
+missing module named 'PyQt4.QtCore' - imported by PIL.ImageQt
+missing module named 'PyQt5.QtCore' - imported by PIL.ImageQt
+missing module named pathlib - imported by PIL.Image
+missing module named rourl2path - imported by urllib
+missing module named 'urllib3.packages.six.moves' - imported by urllib3.exceptions, urllib3.connectionpool, urllib3.connection, urllib3.util.response, urllib3.request, urllib3.response, urllib3.util.queue, urllib3.poolmanager
+missing module named backports - imported by urllib3.packages.ssl_match_hostname

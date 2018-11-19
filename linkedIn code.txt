@@ -1,0 +1,475 @@
+# coding: utf-8
+
+from selenium import webdriver
+
+from selenium.webdriver.common.keys import Keys
+
+import time
+
+import random
+
+import xlsxwriter
+
+import urllib
+
+from selenium.webdriver.common.by  import By
+
+from selenium.webdriver.support.ui import WebDriverWait
+
+from selenium.webdriver.support import expected_conditions as EC
+
+from selenium.common.exceptions import TimeoutException
+
+import xlwings as xw
+
+from difflib import SequenceMatcher
+
+
+
+####################################################################
+
+
+browser = webdriver.Chrome(executable_path='D:\chromeDriver\chromedriver.exe')
+
+
+def scroll_down_page():
+    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    small_wait()
+
+###############################################
+
+def excel_read():
+
+    wb = xw.Book('Companies and Keywords.xlsx')
+
+    Search = wb.sheets['Search']
+
+    Result = wb.sheets['Result']
+
+    company_name =[]
+
+    keywords = []
+
+    name_count = 2
+
+    keyword_count = 2
+
+    while(Search.range('A' + str(name_count)).value != None):
+
+        company_name.append(Search.range('A' + str(name_count)).value)
+
+        name_count = name_count + 1
+
+    while (Search.range('B' + str(keyword_count)).value != None):
+        keywords.append(Search.range('B' + str(keyword_count)).value)
+
+        keyword_count = keyword_count + 1
+
+    return company_name,keywords
+
+
+###############################################
+
+def prioritize_keywords(Keywords):
+
+    First_Priority = []
+
+    Second_Priority = []
+
+    Third_Priority = []
+
+    prioritize = []
+
+    for keyword in Keywords:
+
+        if (("dev").upper() in str(keyword).upper() or "Merger".upper() in str(keyword).upper() or "M&A".upper() in str(keyword).upper()):
+
+            First_Priority.append(str(keyword))
+
+        if (("CSO").upper() in str(keyword).upper() or "Strategy".upper() in str(
+                    keyword).upper() or "Corporate Strategy".upper() in str(keyword).upper()):
+
+            Second_Priority.append(str(keyword))
+
+        if (("CFO").upper() in str(keyword).upper() or "Finance".upper() in str(
+                    keyword).upper() or "Financial".upper() in str(keyword).upper()):
+
+            Third_Priority.append(str(keyword))
+
+    check = False
+
+    First = ','.join(str(e) for e in First_Priority)
+
+    Second =','.join(str(e) for e in Second_Priority)
+
+    Third = ','.join(str(e) for e in Third_Priority)
+
+    prioritize.append(First)
+
+    prioritize.append(Second)
+
+    prioritize.append(Third)
+
+    return prioritize
+
+
+###############################################
+
+def Long_wait():
+
+    rand = random.randint(5, 8)
+    browser.implicitly_wait(50)
+    time.sleep(rand)
+
+
+###############################################
+
+def Medium_wait():
+
+    rand = random.randint(3, 5)
+    browser.implicitly_wait(50)
+    time.sleep(rand)
+
+
+###############################################
+
+def small_wait():
+
+    rand = random.randint(2, 3)
+    browser.implicitly_wait(50)
+    time.sleep(rand)
+
+
+###############################################
+
+def login(user,passw):
+
+    browser.get('https://www.linkedin.com/')
+
+    Medium_wait()
+
+    username = browser.find_element_by_id("login-email")
+
+    password = browser.find_element_by_id("login-password")
+
+    Medium_wait()
+
+    username.send_keys(str(user))
+
+    small_wait()
+
+    password.send_keys(str(passw))
+
+    small_wait()
+
+    browser.find_element_by_id("login-submit").click()
+
+    Long_wait()
+
+####################################
+
+
+def get_data():
+
+
+    Target_name =[]
+
+    Target_designation = []
+
+    Target_link =[]
+
+    small_wait()
+
+    titles_connect = browser.find_elements_by_xpath("//span[@class='name actor-name']//parent::span[@class='name-and-distance']//parent::span[@class='name-and-icon']//parent::h3//parent::a//parent::div//p[@class='subline-level-1 t-14 t-black t-normal search-result__truncate']//span[@dir='ltr']")
+
+    names_connect = browser.find_elements_by_xpath("//span[@class='name actor-name']")
+
+    link_connect = browser.find_elements_by_xpath("//span[@class='name actor-name']//parent::span[@class='name-and-distance']//parent::span[@class='name-and-icon']//parent::h3//parent::a")
+
+    # # With connect Option #
+    #
+    # titles_connect = browser.find_elements_by_xpath("//button[@class='search-result__actions--primary button-secondary-medium m5']//parent::div[@class='ember-view']//parent::div[@class='search-result__actions']//preceding-sibling::div[@class='search-result__info pt3 pb4 ph0']//p[@class='subline-level-1 t-14 t-black t-normal search-result__truncate']//span[@dir='ltr']")
+    #
+    # names_connect = browser.find_elements_by_xpath("//button[@class='search-result__actions--primary button-secondary-medium m5']//parent::div[@class='ember-view']//parent::div[@class='search-result__actions']//preceding-sibling::div[@class='search-result__info pt3 pb4 ph0']//p[@class='subline-level-1 t-14 t-black t-normal search-result__truncate']//preceding-sibling::a[@class='search-result__result-link ember-view']//span[@class='name actor-name']")
+    #
+    # link_connect = browser.find_elements_by_xpath("//button[@class='search-result__actions--primary button-secondary-medium m5']//parent::div[@class='ember-view']//parent::div[@class='search-result__actions']//preceding-sibling::div[@class='search-result__info pt3 pb4 ph0']//p[@class='subline-level-1 t-14 t-black t-normal search-result__truncate']//preceding-sibling::a[@class='search-result__result-link ember-view']")
+
+
+    # # with message_lock option #
+    #
+    # titles_message = browser.find_elements_by_xpath("//a[@title='Send InMail']//parent::div[@class='premium-upsell-link ember-view']//parent::div[@class='message-anywhere-button search-result__actions--primary button-secondary-medium m5 link-without-visited-state']//parent::artdeco-hoverable-trigger[@class='ember-view']//parent::div[@class='ember-view']//parent::div//parent::div[@class='search-result__actions']//preceding-sibling::div[@class='search-result__info pt3 pb4 ph0']//p[@class='subline-level-1 t-14 t-black t-normal search-result__truncate']//span[@dir='ltr']")
+    #
+    # names_message = browser.find_elements_by_xpath("//a[@title='Send InMail']//parent::div[@class='premium-upsell-link ember-view']//parent::div[@class='message-anywhere-button search-result__actions--primary button-secondary-medium m5 link-without-visited-state']//parent::artdeco-hoverable-trigger[@class='ember-view']//parent::div[@class='ember-view']//parent::div//parent::div[@class='search-result__actions']//preceding-sibling::div[@class='search-result__info pt3 pb4 ph0']//p[@class='subline-level-1 t-14 t-black t-normal search-result__truncate']//preceding-sibling::a[@class='search-result__result-link ember-view']//span[@class='name actor-name']")
+    #
+    # link_message = browser.find_elements_by_xpath("//a[@title='Send InMail']//parent::div[@class='premium-upsell-link ember-view']//parent::div[@class='message-anywhere-button search-result__actions--primary button-secondary-medium m5 link-without-visited-state']//parent::artdeco-hoverable-trigger[@class='ember-view']//parent::div[@class='ember-view']//parent::div//parent::div[@class='search-result__actions']//preceding-sibling::div[@class='search-result__info pt3 pb4 ph0']//p[@class='subline-level-1 t-14 t-black t-normal search-result__truncate']//preceding-sibling::a[@class='search-result__result-link']")
+    #
+    # # with message_unlock option #
+    #
+    # titles_umessage = browser.find_elements_by_xpath("//button[@class='message-anywhere-button search-result__actions--primary button-secondary-medium m5']//parent::div[@class='ember-view']//parent::div[@class='ember-view']//parent::div[@class='search-result__actions']//preceding-sibling::div[@class='search-result__info pt3 pb4 ph0']//p[@class='subline-level-1 t-14 t-black t-normal search-result__truncate']//span[@dir='ltr']")
+    #
+    # names_umessage = browser.find_elements_by_xpath("//button[@class='message-anywhere-button search-result__actions--primary button-secondary-medium m5']//parent::div[@class='ember-view']//parent::div[@class='ember-view']//parent::div[@class='search-result__actions']//preceding-sibling::div[@class='search-result__info pt3 pb4 ph0']//span[@class='name actor-name']")
+    #
+    # link_umessage = browser.find_elements_by_xpath("//button[@class='message-anywhere-button search-result__actions--primary button-secondary-medium m5']//parent::div[@class='ember-view']//parent::div[@class='ember-view']//parent::div[@class='search-result__actions']//preceding-sibling::div[@class='search-result__info pt3 pb4 ph0']//a[@class='search-result__result-link ember-view']")
+
+
+    for name, title1, link in zip(names_connect, titles_connect,link_connect):
+        Target_name.append(name.text)
+        Target_designation.append(title1.text)
+        Target_link.append(link.get_attribute("href"))
+
+    # for name, title, link in zip(names_message, titles_message,link_message):
+    #     Target_name.append(name.text)
+    #     Target_designation.append(title.text)
+    #     Target_link.append(link.get_attribute("href"))
+    #
+    # for name, title, link in zip(names_umessage, titles_umessage,link_umessage):
+    #     Target_name.append(name.text)
+    #     Target_designation.append(title.text)
+    #     Target_link.append(link.get_attribute("href"))
+
+    return Target_name,Target_designation,Target_link
+###############################################
+
+def Search(company, keywords):
+
+    search = browser.find_element_by_xpath('//input[@role="combobox"]')
+
+    small_wait()
+
+    company_name = 'company: "' + company + '"'
+
+    key_words = keywords
+
+    if ',' in keywords:
+
+        key_words = keywords.replace(',', '" OR "')
+
+
+    keyword = 'title:' + '("' + key_words + '")'
+
+    query = company_name + " " + keyword
+
+    search.send_keys(Keys.CONTROL,'a')
+
+    search.send_keys(Keys.BACKSPACE)
+
+    search.send_keys(query)
+
+    small_wait()
+
+    search.send_keys(u'\ue007')
+
+    Medium_wait()
+
+    for i in range(0, 5):
+
+        search.send_keys(Keys.PAGE_DOWN)
+
+        small_wait()
+
+    for i in range(0, 5):
+
+        search.send_keys(Keys.PAGE_UP)
+
+        small_wait()
+
+    small_wait()
+
+
+
+###############################################
+
+def finalizing_data(names, designations, links,Prioritize,count):
+
+
+    wb = xw.Book('Companies and Keywords.xlsx')
+
+    Result = wb.sheets['Result']
+
+
+    for designation, name, link in zip(designations, names, links):
+
+        for keyword in Prioritize:
+
+            if SequenceMatcher(None, designation, keyword).ratio() > 0.4:
+
+                Result.range('A' + str(count)).value = str(name)
+
+                Result.range('B' + str(count)).value = designation
+
+                Result.range('C' + str(count)).value = str(link)
+
+                count = count + 1
+
+    return count
+
+    #     designation = str(designation)
+    #
+    #     name = str(name)
+    #
+    #     Check_status = str(status)
+    #
+    #     if (Check_status.find(str(Prioritize[0])) or Check_status.find(str(Prioritize[1])) or Check_status.find(
+    #             str(Prioritize[2]))):
+    #         final_names.append(name)
+    #
+    #         final_designations.append(designation)
+    #
+    #         final_status.append(str(status))
+    #
+    # for name, fdesignation, status in zip(final_names, final_designations, final_status):
+
+
+###############################################
+
+
+def get_images(company,company_type):
+
+    logos =[]
+
+    Company_details = []
+
+    browser.get('https://www.linkedin.com/search/results/companies/?keywords=company%3A%20 "' + company +
+                '" &origin=SWITCH_SEARCH_VERTICAL')
+
+    Long_wait()
+
+    search = browser.find_element_by_xpath('//input[@role="combobox"]')
+
+    for i in range(0, 5):
+        search.send_keys(Keys.PAGE_DOWN)
+        small_wait()
+
+    for i in range(0, 5):
+        search.send_keys(Keys.PAGE_UP)
+        small_wait()
+
+
+    company_name = browser.find_elements_by_xpath("//h3[@class='search-result__title t-16 t-black t-bold']")
+
+    small_wait()
+
+    company_logo = browser.find_elements_by_xpath("//div[@class='ivm-view-attr__img--centered  EntityPhoto-square-4 ember-view']")
+
+    small_wait()
+
+    Company_detail = browser.find_elements_by_xpath("//div[@class='ivm-view-attr__img--centered  EntityPhoto-square-4 ember-view']//parent::div[@class='display-flex ember-view']//parent::div[@class='ivm-image-view-model ember-view']//parent::figure[@class='search-result__image']//parent::a[@class='search-result__result-link ember-view']//parent::div[@class='search-result__image-wrapper']//following-sibling::div[@class='search-result__info pt3 pb4 pr0']//p[@class='subline-level-1 t-14 t-black t-normal search-result__truncate']")
+
+    small_wait()
+
+    for logo,detail,name in zip(company_logo,Company_detail,company_name):
+
+        if (SequenceMatcher(None, detail.text, company_type).ratio() > 0.1 and SequenceMatcher(None, name.text, company).ratio() > 0.4):
+
+            logos.append(logo.get_attribute("style"))
+
+            Company_details.append(detail.text)
+
+    return logos,Company_details
+
+###############################################
+
+
+
+def extract_image_link(links):
+
+    image_links = []
+
+    for link in links:
+
+        link = str(link)
+
+        link = (link[link.find('"')+1:link.rfind('"')])
+
+        image_links.append(link)
+
+    return image_links
+    #
+    # count = 1
+    #
+    # for company in Companies:
+    #
+    #     for priority in Prioritize:
+    #
+    #         Search(str(company), str(priority))
+    #
+    #         names, designations, links = get_data()
+    #
+    #         count = finalizing_data(names, designations, links,count)
+    #
+    #
+    # get_images(Companies)
+
+
+###############################################
+
+
+def finalize_image(Companies):
+    image_count = 2
+
+    wb = xw.Book('Companies and Keywords.xlsx')
+
+    Result = wb.sheets['Result']
+
+    Image = wb.sheets('Image')
+
+    image_downloaded = 1
+
+    for company in Companies:
+
+        images, details = get_images(company, "Computer Software Industrial Automation Telecommunications Engineering Information Technology Services Trading Hiring Defence Shipping Electrical")
+
+        image_link = extract_image_link(images)
+
+        image_details_initial = "D"
+
+
+        for image, detail in zip(image_link, details):
+
+            Result.range(image_details_initial + str(image_count)).value = str(image)[str(image).find(':')+1:]
+
+            image_details_initial = chr(ord(image_details_initial) + 1)
+
+            Result.range(image_details_initial + str(image_count)).value = detail
+
+            image_details_initial = chr(ord(image_details_initial) + 1)
+
+        image_count = image_count + 1
+
+
+        for image in image_link:
+
+            urllib.urlretrieve('http:'+str(image)[str(image).find(':')+1:],"pic" + str(image_downloaded)+".jpg")
+
+            image_downloaded = image_downloaded + 1
+###############################################
+
+if __name__ == "__main__":
+
+    names = []
+
+    designations = []
+
+    links = []
+
+    count = 2
+
+    Companies, Keywords = excel_read()
+
+    Prioritize = prioritize_keywords(Keywords)
+
+    login("khubaib10@gmail.com","@W@!S888")
+
+    # for company in Companies:
+    #
+    #     for keyword in Prioritize:
+    #
+    #         Search(company,keyword)
+    #
+    #         names, designations, links = get_data()
+    #
+    #         count = finalizing_data(names, designations, links,Prioritize,count)
+
+    finalize_image(Companies)
+
+
