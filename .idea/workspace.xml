@@ -21,8 +21,8 @@
       <file leaf-file-name="lets-scrape.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lets-scrape.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2619">
-              <caret line="509" column="0" lean-forward="true" selection-start-line="509" selection-start-column="0" selection-end-line="509" selection-end-column="0" />
+            <state relative-caret-position="3995">
+              <caret line="509" column="0" lean-forward="false" selection-start-line="509" selection-start-column="0" selection-end-line="509" selection-end-column="0" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
                 <element signature="e#464#554#0" expanded="false" />
@@ -97,6 +97,9 @@
       <find>get_attribute</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -116,6 +119,7 @@
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <flattenPackages />
@@ -348,19 +352,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28441754" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25261325" sideWeight="0.5030349" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24786325" sideWeight="0.4969651" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27685326" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24786325" sideWeight="0.4969651" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28139183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39721254" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39721254" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -391,6 +396,61 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lets-scrape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#464#554#0" expanded="false" />
+            <element signature="e#628#1327#0" expanded="false" />
+            <element signature="e#1014#1113#0" expanded="false" />
+            <element signature="e#1189#1293#0" expanded="false" />
+            <element signature="e#1419#2470#0" expanded="false" />
+            <element signature="e#1550#2174#0" expanded="false" />
+            <element signature="e#2544#2624#0" expanded="false" />
+            <element signature="e#2700#2780#0" expanded="false" />
+            <element signature="e#2855#2935#0" expanded="false" />
+            <element signature="e#3015#3392#0" expanded="false" />
+            <element signature="e#3455#9319#0" expanded="false" />
+            <element signature="e#4120#4145#0" expanded="false" />
+            <element signature="e#8673#8804#0" expanded="false" />
+            <element signature="e#8810#8885#0" expanded="false" />
+            <element signature="e#9407#10114#0" expanded="false" />
+            <element signature="e#9952#10006#0" expanded="false" />
+            <element signature="e#10043#10095#0" expanded="false" />
+            <element signature="e#10228#11596#0" expanded="false" />
+            <element signature="e#10385#11050#0" expanded="false" />
+            <element signature="e#10845#11050#0" expanded="false" />
+            <element signature="e#11074#11110#0" expanded="false" />
+            <element signature="e#12046#12099#0" expanded="false" />
+            <element signature="e#12135#12186#0" expanded="false" />
+            <element signature="e#13294#13557#0" expanded="false" />
+            <element signature="e#13360#13557#0" expanded="false" />
+            <element signature="e#13893#13894#0" expanded="false" />
+            <element signature="e#17028#17430#0" expanded="false" />
+            <element signature="e#17498#17645#0" expanded="false" />
+            <element signature="e#17538#17645#0" expanded="false" />
+            <element signature="e#17735#17947#0" expanded="false" />
+            <element signature="e#18405#18742#0" expanded="false" />
+            <element signature="e#18821#18929#0" expanded="false" />
+            <element signature="e#18972#19928#0" expanded="false" />
+            <element signature="e#19134#19192#0" expanded="false" />
+            <element signature="e#19237#19293#0" expanded="false" />
+            <element signature="e#19519#19889#0" expanded="false" />
+            <element signature="e#19562#19889#0" expanded="false" />
+            <element signature="e#19626#19889#0" expanded="false" />
+            <element signature="e#21357#22451#0" expanded="false" />
+            <element signature="e#21492#21562#0" expanded="false" />
+            <element signature="e#21630#21698#0" expanded="false" />
+            <element signature="e#21890#21989#0" expanded="false" />
+            <element signature="e#22132#22380#0" expanded="false" />
+            <element signature="e#22680#22746#0" expanded="false" />
+            <element signature="e#22806#22870#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lets-scrape.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1073,8 +1133,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lets-scrape.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2619">
-          <caret line="509" column="0" lean-forward="true" selection-start-line="509" selection-start-column="0" selection-end-line="509" selection-end-column="0" />
+        <state relative-caret-position="3995">
+          <caret line="509" column="0" lean-forward="false" selection-start-line="509" selection-start-column="0" selection-end-line="509" selection-end-column="0" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
             <element signature="e#464#554#0" expanded="false" />
